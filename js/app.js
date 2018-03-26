@@ -11,22 +11,27 @@ function displaySymbol() {
   this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
-let cardsPicked = [];
+let cardsPicked = []; //array that contains picked cards
 
-function cardPicking () {
+function cardPicking() {
   cardsPicked.push(this);
   const chance = cardsPicked.length;
 
   if (chance === 2) {
-    if (cardsPicked[0].type) === (cardsPicked[1].type) {
-      //matched
+    if (cardsPicked[0].type === cardsPicked[1].type) {
+      matched();
     } else {
-      // not matched
+      unmatched();
     }
 
   }
 };
 
+function matched(){
+  cardsPicked[0].classList.add('match');
+  cardsPicked[1].classList.add('match');
+
+}
 
 /*
  * Display the cards on the page
