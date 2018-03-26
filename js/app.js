@@ -1,6 +1,15 @@
-/*
- * Create a list that holds all of your cards
- */
+let card = document.querySelectorAll('.card');
+let cards = [...card];  //holds all cards in an array
+
+for (var i = 0; i < cards.length; i++){
+  cards[i].addEventListener('click', displaySymbol);
+}; //event listener to function below, as suggested
+
+function displaySymbol() {
+  this.classList.toggle('open'); //changes colour of the card for the same when it is opened
+  this.classList.toggle('show'); //showing symbol on a card
+}
+
 
 
 /*
