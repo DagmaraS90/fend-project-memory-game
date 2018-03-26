@@ -11,6 +11,21 @@ function displaySymbol() {
   this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
+let cardsPicked = [];
+
+function cardPicking () {
+  cardsPicked.push(this);
+  const chance = cardsPicked.length;
+
+  if (chance === 2) {
+    if (cardsPicked[0].type) === (cardsPicked[1].type) {
+      //matched
+    } else {
+      // not matched
+    }
+
+  }
+};
 
 
 /*
