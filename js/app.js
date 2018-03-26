@@ -8,6 +8,7 @@ for (var i = 0; i < cards.length; i++){
 function displaySymbol() {
   this.classList.toggle('open'); //changes colour of the card for the same when it is opened
   this.classList.toggle('show'); //showing symbol on a card
+  this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
 
