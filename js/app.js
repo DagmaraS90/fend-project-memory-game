@@ -27,9 +27,10 @@ function displaySymbol() {
   this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
-/*let cardsSelected = [];*/ //array that contains picked cards
+let cardsSelected = []; //array that contains picked cards
 
 function cardSelection() { //push cards to array of selected cards
+  cardsSelected.push(this);
   const chance = cardsSelected.length;
   if (chance === 2) {
     if (cardsSelected[0].type === cardsSelected[1].type) { //are types the same?
