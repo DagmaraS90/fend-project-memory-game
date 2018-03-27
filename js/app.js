@@ -41,7 +41,7 @@ function shuffle(array) {
 
 //get modal element
 
-var modal = document.getElementsByClassName("modal");
+var modal = document.getElementsByClassName("modal")[0];
 
 //get close button
 
