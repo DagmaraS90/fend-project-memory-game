@@ -107,3 +107,42 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*modal styling*/
+
+.modal {
+  /*display: none;*/
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color:#f4f4f4;
+  margin: 20% auto;
+  width: 70%;
+  border-radius: 1%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+.modal-header h2 {
+  margin: 0;
+  background: #02ccba;
+  color: white;
+  padding: 15px;
+}
+
+.modal-body {
+  padding: 10px 20px;
+}
+
+.modal-footer {
+  background: #02ccba;
+  color: white;
+  padding: 10px;
+}
