@@ -1,5 +1,21 @@
+//setting variables
+const deck = document.getElementsByClassName('deck')[0];
 let card = document.querySelectorAll('.card');
 let cards = [...card];  //holds all cards in an array
+
+//moves variables
+
+let moves = 0;
+let count = document.getElementsByClassName('moves')[0];
+
+//star rating
+
+const starIcons = document.querySelectorAll('.fa-star');
+const listStar = document.querySelectorAll('.stars ul');
+
+let selectedCards = [];
+
+
 
 for (var i = 0; i < cards.length; i++){
   cards[i].addEventListener('click', displaySymbol);
