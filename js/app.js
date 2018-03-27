@@ -1,4 +1,3 @@
-<<<<<<< current
 let card = document.querySelectorAll('.card');
 let cards = [...card];  //holds all cards in an array
 
@@ -12,26 +11,31 @@ function displaySymbol() {
   this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
-let cardsPicked = []; //array that contains picked cards
+/*let cardsSelected = [];*/ //array that contains picked cards
 
-function cardPicking() {
-  cardsPicked.push(this);
-  const chance = cardsPicked.length;
-
+function cardSelection() { //push cards to array of selected cards
+  const chance = cardsSelected.length;
   if (chance === 2) {
-    if (cardsPicked[0].type === cardsPicked[1].type) {
-      matched();
+    if (cardsSelected[0].type === cardsSelected[1].type) { //are types the same?
+      matched();  //yes
     } else {
-      unmatched();
+      unmatched(); //no
     }
 
   }
 };
 
-function matched(){
-  cardsPicked[0].classList.add('match');
-  cardsPicked[1].classList.add('match');
+function matched() { //if yes
+  cardsSelected[0].classList.add('match'); //add class match
+  cardsSelected[1].classList.add('match');
+  cardsSelected[0].classList.remove('open show');  //erase classes that are not needed
+  cardsSelected[1].classList.remove('open show');
+}
 
+function unmatched() {
+  cardsSelected[0].classList.remove("show", "open");
+  cardsSelected[1].classList.remove("show", "open");
+  cardsSelected = [];
 }
 
 /*
@@ -67,112 +71,3 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-||||||| after discard
-let card = document.querySelectorAll('.card');
-let cards = [...card];  //holds all cards in an array
-
-for (var i = 0; i < cards.length; i++){
-  cards[i].addEventListener('click', displaySymbol);
-}; //event listener to function below, as suggested
-
-function displaySymbol() {
-  this.classList.toggle('open'); //changes colour of the card for the same when it is opened
-  this.classList.toggle('show'); //showing symbol on a card
-  this.classList.toggle('blocked'); //blocking another click on a card that is already opened
-}
-
-let cardsPicked = []; //array that contains picked cards
-
-function cardPicking() {
-  cardsPicked.push(this);
-  const chance = cardsPicked.length;
-
-  if (chance === 2) {
-    if (cardsPicked[0].type === cardsPicked[1].type) {
-      matched();
-    } else {
-      unmatched();
-    }
-
-  }
-};
-
-function matched(){
-  cardsPicked[0].classList.add('match');
-  cardsPicked[1].classList.add('match');
-
-}
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-=======
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
->>>>>>> before discard
