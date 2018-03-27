@@ -13,7 +13,7 @@ let count = document.getElementsByClassName('moves')[0];
 const starIcons = document.querySelectorAll('.fa-star');
 const listStar = document.querySelectorAll('.stars ul');
 
-let selectedCards = [];
+let selectedCards = [];  //empty array for selected cards
 
 
 
@@ -75,6 +75,19 @@ function shuffle(array) {
 
     return array;
 }
+
+
+function startGame(){
+  // shuffle deck
+  var shuffledCards = shuffle(cards);  //deck is being shuffled
+  for (i = 0; i < shuffledCards.length; i++){ //loop through shuffled cards and...
+    shuffledCards.forEach(function(item) {
+      deck.appendChild(item);  //add each shuffled card to the deck!
+    });
+  }
+}
+
+window.onload = startGame();  //game starts as document loads
 
 
 /*
