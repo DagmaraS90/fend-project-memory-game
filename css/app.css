@@ -128,6 +128,9 @@ h1 {
   width: 70%;
   border-radius: 1%;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+  /*animations*/
+  animation-name: modalopen;
+  animation-duration: 2s;
 }
 
 .modal-header h2 {
@@ -145,4 +148,22 @@ h1 {
   background: #02ccba;
   color: white;
   padding: 10px;
+}
+
+.closebutton {
+  color: white;
+  float: right;
+  font-size: 30px;
+}
+
+.closebutton:hover, .closebutton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*animations*/
+@keyframes modalopen {
+  from{opacity: 0}
+  to{opacity: 1}
 }
