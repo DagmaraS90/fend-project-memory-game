@@ -138,6 +138,7 @@ h1 {
   background: #02ccba;
   color: white;
   padding: 15px;
+  text-align: center;
 }
 
 .modal-body {
@@ -148,12 +149,16 @@ h1 {
   background: #02ccba;
   color: white;
   padding: 10px;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .closebutton {
   color: white;
   float: right;
-  font-size: 30px;
+  font-size: 25px;
+  margin-right: 5px;
 }
 
 .closebutton:hover, .closebutton:focus {
