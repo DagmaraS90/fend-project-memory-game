@@ -36,3 +36,35 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+/*MODAL*/
+
+//get modal element
+
+var modal = document.getElementsByClassName("modal");
+
+//get close button
+
+var closeButton = document.getElementsByClassName("closebutton")[0];
+
+//listen to click to closebtn
+
+closeButton.addEventListener('click', closeModal);
+
+//outside click listener
+
+window.addEventListener('click', clickOutside);
+
+// function to close modal
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// close if clicked outside modal // too
+
+function clickOutside(e) {
+  if(e.target == modal){
+    modal.style.display = 'none';
+  }
+}
