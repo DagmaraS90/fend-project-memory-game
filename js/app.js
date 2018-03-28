@@ -14,6 +14,7 @@ const starIcons = document.querySelectorAll('.fa-star');
 const listStar = document.querySelectorAll('.stars ul');
 
 let selectedCards = [];  //empty array for selected cards
+let matchedCards= []; //array for matched cards
 
 
 
@@ -29,7 +30,7 @@ function displaySymbol() {
 
 let cardsSelected = []; //array that contains picked cards
 
-function cardSelection() { //push cards to array of selected cards
+function cardSelection(card) { //push cards to array of selected cards
   cardsSelected.push(this);
   const chance = cardsSelected.length;
   if (chance === 2) {
@@ -45,15 +46,26 @@ function cardSelection() { //push cards to array of selected cards
 function matched() { //if yes
   cardsSelected[0].classList.add('match'); //add class match
   cardsSelected[1].classList.add('match');
-  cardsSelected[0].classList.remove('open show');  //erase classes that are not needed
-  cardsSelected[1].classList.remove('open show');
+  cardsSelected[0].classList.remove('open', 'show');  //erase classes that are not needed
+  cardsSelected[1].classList.remove('open', 'show');
+  cardsSelected = [];
 }
 
 function unmatched() {
-  cardsSelected[0].classList.remove("show", "open");
-  cardsSelected[1].classList.remove("show", "open");
-  cardsSelected = [];
+  /*cardsSelected[0].classList.add("show", "open");
+  cardsSelected[1].classList.add("show", "open");*/
+  cardsSelected[0].classList.add("unmatched");
+  cardsSelected[1].classList.add("unmatched");
+
+  setTimeout(function(){   //without this part the second card was not showing up
+      cardsSelected[0].classList.remove("show", "open","unmatched", 'blocked');
+      cardsSelected[1].classList.remove("show", "open", "unmatched", 'blocked'); //erasing blocked allows to click on the same card many times
+      /*enable();*/
+      cardsSelected = [];
+  },1100);
 }
+  /*cardsSelected[0].classList.remove("show", "open");
+  cardsSelected[1].classList.remove("show", "open");*/
 
 /*
  * Display the cards on the page
@@ -91,6 +103,12 @@ function startGame(){
 window.onload = startGame();  //game starts as document loads
 
 
+
+for (var i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener("click", displaySymbol);
+    card.addEventListener("click", cardSelection);
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
