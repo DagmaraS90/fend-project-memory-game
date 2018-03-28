@@ -12,7 +12,6 @@ let points = 0;
 //star rating
 
 const starIcons = document.querySelectorAll('.fa-star');
-const listStar = document.querySelectorAll('.stars ul');
 
 let selectedCards = [];  //empty array for selected cards
 let matchedCards= []; //array for matched cards
@@ -76,8 +75,16 @@ function pointsCount() {
 function moveCount() {
   moves++;
   count.innerHTML = `MOVES: ${moves}`;
-}
 
+//erase stars
+
+if (moves > 16) {
+  document.getElementById('star1').style.visibility = 'hidden';
+  if (moves > 24) {
+    document.getElementById('star2').style.visibility = 'hidden';
+    }
+  }
+}
 
   /*cardsSelected[0].classList.remove("show", "open");
   cardsSelected[1].classList.remove("show", "open");*/

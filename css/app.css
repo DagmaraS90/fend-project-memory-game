@@ -116,3 +116,15 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+#star1 {
+  display:inline-block;
+}
+
+#star2 {
+  display:inline-block;
+}
+
+#star3 {
+  display:inline-block;
+}
