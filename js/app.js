@@ -33,6 +33,7 @@ let cardsSelected = []; //array that contains picked cards
 
 function cardSelection(card) { //push cards to array of selected cards
   cardsSelected.push(this);
+  moveCount();
   const chance = cardsSelected.length;
   if (chance === 2) {
     if (cardsSelected[0].type === cardsSelected[1].type) { //are types the same?
@@ -50,7 +51,7 @@ function matched() { //if yes
   cardsSelected[0].classList.remove('open', 'show');  //erase classes that are not needed
   cardsSelected[1].classList.remove('open', 'show');
   cardsSelected = [];
-  pointscount();
+  pointsCount();
 }
 
 function unmatched() {
@@ -67,9 +68,14 @@ function unmatched() {
   },1100);
 }
 
-function pointscount() {
+function pointsCount() {
   points++;
   document.getElementsByClassName('points')[0].innerHTML = `POINTS: ${points}`;
+}
+
+function moveCount() {
+  moves++;
+  count.innerHTML = `MOVES: ${moves}`;
 }
 
 
