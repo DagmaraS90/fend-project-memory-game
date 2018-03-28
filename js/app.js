@@ -7,6 +7,7 @@ let cards = [...card];  //holds all cards in an array
 
 let moves = 0;
 let count = document.getElementsByClassName('moves')[0];
+let points = 0;
 
 //star rating
 
@@ -49,6 +50,7 @@ function matched() { //if yes
   cardsSelected[0].classList.remove('open', 'show');  //erase classes that are not needed
   cardsSelected[1].classList.remove('open', 'show');
   cardsSelected = [];
+  pointscount();
 }
 
 function unmatched() {
@@ -64,6 +66,13 @@ function unmatched() {
       cardsSelected = [];
   },1100);
 }
+
+function pointscount() {
+  points++;
+  document.getElementsByClassName('points')[0].innerHTML = `POINTS: ${points}`;
+}
+
+
   /*cardsSelected[0].classList.remove("show", "open");
   cardsSelected[1].classList.remove("show", "open");*/
 
