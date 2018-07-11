@@ -124,6 +124,29 @@ function startGame(){
 
 window.onload = startGame();  //game starts as document loads
 
+//setting timer
+//timer starts at first click
+for (var i = 0; i < cards.length; i++){
+  cards[i].addEventListener('click', timeStart);
+}; //event listener to each card
+
+var timer = document.getElementsByClassName("timer")[0];  //choosing first element of this class
+var interval;
+let second = 0;
+let minute = 0;
+
+function timeStart (){
+  interval = setInterval(function() {
+    timer.innerHTML = `${minute} minutes and ${second} seconds`;
+    second++;
+
+    if(second == 60) {
+      minute++;
+      second = 0;
+    }
+  }, 1000)
+}
+
 
 
 for (var i = 0; i < cards.length; i++){
