@@ -1,5 +1,22 @@
+//setting variables
+const deck = document.getElementsByClassName('deck')[0];
 let card = document.querySelectorAll('.card');
 let cards = [...card];  //holds all cards in an array
+
+//moves variables
+
+let moves = 0;
+let count = document.getElementsByClassName('moves')[0];
+let points = 0;
+
+//star rating
+
+const starIcons = document.querySelectorAll('.fa-star');
+
+let selectedCards = [];  //empty array for selected cards
+let matchedCards= []; //array for matched cards
+
+
 
 for (var i = 0; i < cards.length; i++){
   cards[i].addEventListener('click', displaySymbol);
@@ -11,7 +28,66 @@ function displaySymbol() {
   this.classList.toggle('blocked'); //blocking another click on a card that is already opened
 }
 
+let cardsSelected = []; //array that contains picked cards
 
+function cardSelection(card) { //push cards to array of selected cards
+  cardsSelected.push(this);
+  moveCount();
+  const chance = cardsSelected.length;
+  if (chance === 2) {
+    if (cardsSelected[0].type === cardsSelected[1].type) { //are types the same?
+      matched();  //yes
+    } else {
+      unmatched(); //no
+    }
+
+  }
+};
+
+function matched() { //if yes
+  cardsSelected[0].classList.add('match'); //add class match
+  cardsSelected[1].classList.add('match');
+  cardsSelected[0].classList.remove('open', 'show');  //erase classes that are not needed
+  cardsSelected[1].classList.remove('open', 'show');
+  cardsSelected = [];
+  pointsCount();
+}
+
+function unmatched() {
+  /*cardsSelected[0].classList.add("show", "open");
+  cardsSelected[1].classList.add("show", "open");*/
+  cardsSelected[0].classList.add("unmatched");
+  cardsSelected[1].classList.add("unmatched");
+
+  setTimeout(function(){   //without this part the second card was not showing up
+      cardsSelected[0].classList.remove("show", "open","unmatched", 'blocked');
+      cardsSelected[1].classList.remove("show", "open", "unmatched", 'blocked'); //erasing blocked allows to click on the same card many times
+      /*enable();*/
+      cardsSelected = [];
+  },1100);
+}
+
+function pointsCount() {
+  points++;
+  document.getElementsByClassName('points')[0].innerHTML = `POINTS: ${points}`;
+}
+
+function moveCount() {
+  moves++;
+  count.innerHTML = `MOVES: ${moves}`;
+
+//erase stars
+
+if (moves > 16) {
+  document.getElementById('star1').style.visibility = 'hidden';
+  if (moves > 24) {
+    document.getElementById('star2').style.visibility = 'hidden';
+    }
+  }
+}
+
+  /*cardsSelected[0].classList.remove("show", "open");
+  cardsSelected[1].classList.remove("show", "open");*/
 
 /*
  * Display the cards on the page
@@ -36,6 +112,25 @@ function shuffle(array) {
 }
 
 
+function startGame(){
+  // shuffle deck
+  var shuffledCards = shuffle(cards);  //deck is being shuffled
+  for (i = 0; i < shuffledCards.length; i++){ //loop through shuffled cards and...
+    shuffledCards.forEach(function(item) {
+      deck.appendChild(item);  //add each shuffled card to the deck!
+    });
+  }
+}
+
+window.onload = startGame();  //game starts as document loads
+
+
+
+for (var i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener("click", displaySymbol);
+    card.addEventListener("click", cardSelection);
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)

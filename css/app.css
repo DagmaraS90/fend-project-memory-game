@@ -83,6 +83,11 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.unmatched {
+  animation-name: pulse;
+  animation-duration: 30s;
+}
+
 .deck .card.blocked {
   pointer-events: none;
 }
@@ -112,4 +117,16 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+#star1 {
+  display:inline-block;
+}
+
+#star2 {
+  display:inline-block;
+}
+
+#star3 {
+  display:inline-block;
 }
